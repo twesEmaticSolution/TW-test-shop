@@ -14,6 +14,31 @@ const getUserProfile = asyncHandler(async (req, res) => {
   });
 });
 
+// desc   update user profile
+// route  PUT /api/users/profile
+// access PRIVATE
+const updateUserProfile = asyncHandler(async (req, res) => {
+  if (!req.user) {
+    res.status(400);
+    throw new Error("User not found");
+  }
+
+  const { name, email, password } = req.body;
+  if (name) req.user.name = name;
+  if (email) req.user.email = email;
+  if (password) req.user.password = password;
+
+  const updateUser = await req.user.save();
+
+  res.json({
+    _id: updateUser._id,
+    name: updateUser.name,
+    email: updateUser.email,
+    isAdmin: updateUser.isAdmin,
+    token: generateToken(updateUser._id),
+  });
+});
+
 // desc   register a new user
 // route  POST /api/users
 // access PUBLIC
@@ -68,4 +93,4 @@ const authUser = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, getUserProfile, registerUser };
+export { authUser, getUserProfile, registerUser, updateUserProfile };

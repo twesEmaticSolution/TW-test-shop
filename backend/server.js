@@ -24,7 +24,6 @@ app.use("/api/products", productRoutes);
 app.use("/api/users", userRoutes);
 
 app.use(notFound);
-
 app.use(errorHandler);
 
 app.listen(PORT, console.log(`server running on port ${PORT}`));
