@@ -11,7 +11,7 @@ import {
   Card,
 } from "react-bootstrap";
 import Message from "../components/Message";
-import { addToCart, removeFromCart } from "../slicers/cart/showCart";
+import { addToCart, removeFromCart } from "../slicers/cart/cartActions";
 
 export default function CartScreen() {
   // id might be null when we press "cart" buttom
@@ -37,7 +37,7 @@ export default function CartScreen() {
 
   const checkoutHandler = () => {
     // history.push("/login?redirect=shipping")
-    navigate("/login?redirect=shipping");
+    navigate("/login?redirect=/shipping");
   };
 
   return (

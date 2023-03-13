@@ -6,6 +6,7 @@ import userLoginSlice from "./slicers/user/userLoginSlice";
 import userRegisterSlice from "./slicers/user/userRegisterSlice";
 import userDetailsSlice from "./slicers/user/userDetailsSlice";
 import userUpdateSlice from "./slicers/user/userUpdateSlice";
+import orderCreateSlice from "./slicers/order/orderSlice";
 
 const store = configureStore({
   reducer: {
@@ -16,6 +17,7 @@ const store = configureStore({
     userRegister: userRegisterSlice,
     userDetails: userDetailsSlice,
     userUpdate: userUpdateSlice,
+    orderCreate: orderCreateSlice,
   },
 });
 

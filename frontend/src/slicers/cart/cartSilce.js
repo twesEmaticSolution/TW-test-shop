@@ -4,11 +4,16 @@ const cartItemsFromStorage = localStorage.getItem("cartItems")
   ? JSON.parse(localStorage.getItem("cartItems"))
   : [];
 
+const shippingAddressFromStorage = localStorage.getItem("shippingAddress")
+  ? JSON.parse(localStorage.getItem("shippingAddress"))
+  : {};
+
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
     // cartItems: { cartItems: cartItemsFromStorage },
     cartItems: cartItemsFromStorage,
+    shippingAddress: shippingAddressFromStorage,
   },
   reducers: {
     add_item(state, action) {
@@ -37,9 +42,26 @@ export const cartSlice = createSlice({
         cartItems: state.cartItems.filter((x) => x.product !== action.payload),
       };
     },
+    save_shipping_info(state, action) {
+      return {
+        ...state,
+        shippingAddress: action.payload,
+      };
+    },
+    save_payment_method(state, action) {
+      return {
+        ...state,
+        paymentMethod: action.payload,
+      };
+    },
   },
 });
 
-export const { add_item, remove_item } = cartSlice.actions;
+export const {
+  add_item,
+  remove_item,
+  save_shipping_info,
+  save_payment_method,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
