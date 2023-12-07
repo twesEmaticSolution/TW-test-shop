@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm install; react-scripts build",
+    "build": "npm i react-scripts -y; npm install; react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
