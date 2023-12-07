@@ -63,8 +63,7 @@ export default function Rating({ value, text, color }) {
           }
         ></i>
       </span>
-      {/* if text exists, show text */}
-      <span>{text && text}</span>
+      <span>{text}</span>
     </div>
   );
 }
