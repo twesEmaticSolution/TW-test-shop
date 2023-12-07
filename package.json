@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node backend/server",
     "server": "nodemon backend/server",
-    "build": "npm run build --prefix frontend",
+    "build": "npm run build --prefix frontend; nodemon backend/server",
     "client": "npm build --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "import_data": "node backend/seeder",
