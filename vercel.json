@@ -1,8 +1,7 @@
 {
     "version": 2,
     "builds": [
-      { "src": "/backend/server.js", "use": "@vercel/node" },
-      { "buildCommand" : "CI=false npm run build;"}
+      { "src": "/backend/server.js", "use": "@vercel/node" }
     ],
     "rewrites": [
       { "source": "/api/(.*)", "destination": "/backend/server.js" }
