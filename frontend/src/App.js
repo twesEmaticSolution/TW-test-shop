@@ -13,6 +13,24 @@ import PaymentScreen from "./screens/PaymentScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 
+// GTM
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Router from 'react-router'
+import routes from './routes'
+ 
+import TagManager from 'react-gtm-module'
+ 
+const tagManagerArgs = {
+    gtmId: 'GTM-000000'
+}
+ 
+TagManager.initialize(tagManagerArgs)
+ 
+const app = document.getElementById('app')
+ReactDOM.render(<Router routes={routes} />, app)
+// GTM
+
 function App() {
   return (
     <BrowserRouter>
