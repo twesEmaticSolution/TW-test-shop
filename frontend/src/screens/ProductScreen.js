@@ -29,7 +29,6 @@ export default function Productscreen() {
 
   useEffect(() => {
     if (product && Object.keys(product).length !== 0) {
-      // 当产品加载完成后，推送 view_item 的数据层
       pushViewDataLayer(product);
     }
   }, [product]);
@@ -39,7 +38,9 @@ export default function Productscreen() {
   };
 
   const pushViewDataLayer = (product) => {
+    console.log("pushViewDataLayer")
     if(product.id && product.price){
+      console.log({product :product})
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "view_item",
