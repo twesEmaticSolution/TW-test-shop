@@ -20,7 +20,6 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
     })    
   );
 
-  console.log("addToCart")
   if(data._id && data.price){
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({

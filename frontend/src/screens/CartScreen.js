@@ -31,6 +31,10 @@ export default function CartScreen() {
       dispatch(addToCart(id, qty));
     }
   }, [dispatch, id, qty]);
+  
+  useEffect(() => {
+    convertToDataLayer(cartItems);
+  }, [cartItems]);
 
   const removeFromCartHandler = (product_id) => {
     dispatch(removeFromCart(product_id));
@@ -61,7 +65,6 @@ export default function CartScreen() {
       }
     });
   }
-  convertToDataLayer(cartItems)
 
   return (
     <Row>
