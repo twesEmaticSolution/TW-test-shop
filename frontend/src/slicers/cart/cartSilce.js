@@ -17,6 +17,8 @@ export const cartSlice = createSlice({
   },
   reducers: {
     add_item(state, action) {
+      console.log({add_item_state: state})
+      console.log({add_item_action: action})
       // check if the item already existed in the cart
       const item = action.payload;
       const existItem = state.cartItems.find((x) => x.product === item.product);
@@ -37,6 +39,8 @@ export const cartSlice = createSlice({
       }
     },
     remove_item(state, action) {
+      console.log({remove_item_state: state})
+      console.log({remove_item_action: action})
       return {
         ...state,
         cartItems: state.cartItems.filter((x) => x.product !== action.payload),

@@ -23,9 +23,7 @@ export default function CartScreen() {
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-  console.log({cartItems: cartItems});
 
-  // if product id in the url, dispatch the action "addToCart"
   useEffect(() => {
     if (id) {
       dispatch(addToCart(id, qty));
