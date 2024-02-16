@@ -39,21 +39,24 @@ export default function Productscreen() {
   };
 
   const pushViewDataLayer = (product) => {
-    console.log({product_darell: product})
-    // window.dataLayer = window.dataLayer || [];
-    // window.dataLayer.push({
-    //   event: "view_item",
-    //   ecommerce: {
-    //     items: [
-    //       {
-    //         id: productId,
-    //         name: productName,
-    //         price: productPrice,
-    //         // 可以添加其他产品属性，如 category 等
-    //       },
-    //     ],
-    //   },
-    // });
+    if(product.id && product.price){
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "view_item",
+        ecommerce: {
+          items: [
+            {
+              id: product._id,
+              name: product.name,
+              price: product.price,
+              brand: product.brand,
+              category: product.category,
+              image: product.image
+            },
+          ],
+        },
+      });
+    }
   };
 
   return (
