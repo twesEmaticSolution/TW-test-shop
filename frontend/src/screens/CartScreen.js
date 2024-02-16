@@ -55,7 +55,7 @@ export default function CartScreen() {
   
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
-      event: "view_item",
+      event: "view_cart",
       ecommerce: {
         items: items
       }
