@@ -41,6 +41,28 @@ export default function CartScreen() {
     navigate("/login?redirect=/shipping");
   };
 
+  const convertToDataLayer = (cartItems) => {
+    const items = cartItems.map(item => {
+      return {
+        id: item.product,
+        name: item.name,
+        price: item.price,
+        brand: item.brand,
+        category: item.category,
+        image: item.image
+      };
+    });
+  
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "view_item",
+      ecommerce: {
+        items: items
+      }
+    });
+  }
+  convertToDataLayer(cartItems)
+
   return (
     <Row>
       <Col md={8}>
