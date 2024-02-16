@@ -21,19 +21,19 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
   );
 
   console.log("addToCart")
-  if(product._id && product.price){
+  if(data._id && data.price){
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "add_to_cart",
       ecommerce: {
         items: [
           {
-            id: product._id,
-            name: product.name,
-            price: product.price,
-            brand: product.brand,
-            category: product.category,
-            image: product.image
+            id: data._id,
+            name: data.name,
+            price: data.price,
+            brand: data.brand,
+            category: data.category,
+            image: data.image
           },
         ],
       },
