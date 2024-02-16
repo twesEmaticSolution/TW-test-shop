@@ -27,8 +27,33 @@ export default function Productscreen() {
     dispatch(listProductDetail(id));
   }, [dispatch, id]);
 
+  useEffect(() => {
+    if (product && Object.keys(product).length !== 0) {
+      // 当产品加载完成后，推送 view_item 的数据层
+      pushViewDataLayer(product);
+    }
+  }, [product]);
+
   const addToCartHandler = () => {
     navigate(`/cart/${id}?qty=${qty}`);
+  };
+
+  const pushViewDataLayer = (product) => {
+    console.log({product_darell: product})
+    // window.dataLayer = window.dataLayer || [];
+    // window.dataLayer.push({
+    //   event: "view_item",
+    //   ecommerce: {
+    //     items: [
+    //       {
+    //         id: productId,
+    //         name: productName,
+    //         price: productPrice,
+    //         // 可以添加其他产品属性，如 category 等
+    //       },
+    //     ],
+    //   },
+    // });
   };
 
   return (
