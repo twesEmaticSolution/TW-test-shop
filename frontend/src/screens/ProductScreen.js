@@ -39,7 +39,7 @@ export default function Productscreen() {
 
   const pushViewDataLayer = (product) => {
     console.log("pushViewDataLayer")
-    if(product.id && product.price){
+    if(product._id && product.price){
       console.log({product :product})
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
