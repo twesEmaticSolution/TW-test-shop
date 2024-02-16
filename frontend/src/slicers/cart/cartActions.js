@@ -17,8 +17,29 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
       price: data.price,
       countInStock: data.countInStock,
       qty,
-    })
+    })    
   );
+
+  console.log("addToCart")
+  if(product._id && product.price){
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "add_to_cart",
+      ecommerce: {
+        items: [
+          {
+            id: product._id,
+            name: product.name,
+            price: product.price,
+            brand: product.brand,
+            category: product.category,
+            image: product.image
+          },
+        ],
+      },
+    });
+  }
+};
 
   localStorage.setItem(
     "cartItems",
