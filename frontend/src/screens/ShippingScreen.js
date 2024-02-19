@@ -20,20 +20,19 @@ export default function ShippingScreen() {
   useEffect(() => {
     console.log("ShippingScreen");
     console.log({ cart: cart });
+    const ecommerceItems = cart.cartItems.map(item => ({
+      id: item.product, 
+      name: item.name, 
+      price: item.price, 
+      brand: item.brand || '', 
+      item_category: item.category || '', 
+      image: item.image 
+    }));
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       event: "begin_checkout",
       ecommerce: {
-        items: [
-          {
-            id: product._id,
-            name: product.name,
-            price: product.price,
-            brand: product.brand,
-            item_category: product.category,
-            image: product.image
-          },
-        ],
+        items: ecommerceItems,
       },
     });
     window.dataLayer.push({
