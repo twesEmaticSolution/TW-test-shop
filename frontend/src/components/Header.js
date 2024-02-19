@@ -12,13 +12,11 @@ export default function Header() {
   const logoutHandler = () => {
     dispatch(logout());
   };
-
-  console.log("Header userInfo");
-  console.log({userInfo : userInfo});
-
+  
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
-    user: userInfo
+    userEmail: userInfo.email,
+    userName: userInfo.name,
   });
 
   return (
