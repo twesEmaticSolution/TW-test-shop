@@ -11,27 +11,15 @@ export const userLoginSlice = createSlice({
   },
   reducers: {
     login_request: (state, action) => {
-      console.log("login_request");
-      console.log({state: state});
-      console.log({action: action});
       return { loading: true };
     },
     login_success: (state, action) => {
-      console.log("login_success");
-      console.log({state: state});
-      console.log({action: action});
       return { loading: false, userInfo: action.payload };
     },
     login_fail: (state, action) => {
-      console.log("login_fail");
-      console.log({state: state});
-      console.log({action: action});
       return { loading: false, error: action.payload };
     },
     log_out: (state, action) => {
-      console.log("log_out");
-      console.log({state: state});
-      console.log({action: action});
       return {};
     },
   },

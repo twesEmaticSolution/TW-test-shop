@@ -22,9 +22,6 @@ export default function Productscreen() {
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetail);
   const { loading, error, product } = productDetail;
-  
-  console.log({productDetail: productDetail});
-
   useEffect(() => {
     dispatch(listProductDetail(id));
   }, [dispatch, id]);
