@@ -92,7 +92,7 @@ export default function ShippingScreen() {
           ></Form.Control>
         </Form.Group>
         <Button type="submit" variant="primary">
-          Continuw
+          Continue
         </Button>
       </Form>
     </FormContainer>

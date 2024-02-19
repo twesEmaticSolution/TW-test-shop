@@ -76,7 +76,7 @@ export default function PaymentScreen() {
           </Col>
         </Form.Group>
         <Button type="submit" variant="primary">
-          Continuw
+          Continue
         </Button>
       </Form>
     </FormContainer>
