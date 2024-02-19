@@ -50,7 +50,7 @@ export default function CartScreen() {
         name: item.name,
         price: item.price,
         brand: item.brand,
-        category: item.category,
+        item_category: item.category,
         image: item.image
       };
     });

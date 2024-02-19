@@ -21,7 +21,7 @@ export const productDetailSlice = createSlice({
               name: product.name,
               price: product.price,
               brand: product.brand,
-              category: product.category,
+              item_category: product.category,
               image: product.image
             },
           ],
