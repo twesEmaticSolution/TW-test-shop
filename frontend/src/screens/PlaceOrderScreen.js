@@ -29,6 +29,29 @@ export default function PlaceOrderScreen() {
       console.log("PlaceOrderScreen useEffect");
       console.log({order: order});
       console.log({success: success});
+      const items = order.orderItems.map(item => {
+        return {
+          id: item.product,
+          name: item.name,
+          price: item.price,
+          brand: item.brand,
+          item_category: item.category,
+          image: item.image
+        };
+      });
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "purchase",
+        transaction_id: order._id,
+        value: order.totalPrice,
+        tax: order.taxPrice,
+        shipping: order.shippingPrice,
+        currency: "TWD",
+        paymentMethod: paymentMethod,
+        ecommerce: {
+          items: items
+        }
+      });
       navigate(`/order/${order._id}`);
     }
   }, [navigate, success]);
