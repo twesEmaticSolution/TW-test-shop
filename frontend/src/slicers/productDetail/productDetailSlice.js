@@ -10,6 +10,10 @@ export const productDetailSlice = createSlice({
       return { loading: true, ...state };
     },
     success: (state, action) => {
+      console.log("success in productDetailSlice")
+      console.log({state: state})
+      console.log({action: action})
+      console.log({product: action.payload})
       return { loading: false, product: action.payload };
     },
     fail: (state, action) => {
