@@ -26,6 +26,9 @@ export default function PlaceOrderScreen() {
 
   useEffect(() => {
     if (success) {
+      console.log("PlaceOrderScreen useEffect");
+      console.log({order: order});
+      console.log({success: success});
       navigate(`/order/${order._id}`);
     }
   }, [navigate, success]);
