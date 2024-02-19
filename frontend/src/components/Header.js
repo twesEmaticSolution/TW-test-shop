@@ -16,6 +16,11 @@ export default function Header() {
   console.log("Header userInfo");
   console.log({userInfo : userInfo});
 
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    user: userInfo
+  });
+
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
