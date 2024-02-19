@@ -15,6 +15,7 @@ export default function Header() {
   
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
+    userId: userInfo._id,
     userEmail: userInfo.email,
     userName: userInfo.name,
   });
