@@ -13,6 +13,9 @@ export default function Header() {
     dispatch(logout());
   };
 
+  console.log("Header userInfo");
+  console.log({userInfo : userInfo});
+
   return (
     <header>
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
