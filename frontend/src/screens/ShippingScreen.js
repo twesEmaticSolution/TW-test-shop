@@ -24,7 +24,8 @@ export default function ShippingScreen() {
       price: item.price, 
       brand: item.brand || '', 
       item_category: item.category || '', 
-      image: item.image 
+      image: item.image,
+      quantity: item.qty
     }));
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
