@@ -18,8 +18,6 @@ export default function ShippingScreen() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log("ShippingScreen");
-    console.log({ cart: cart });
     const ecommerceItems = cart.cartItems.map(item => ({
       id: item.product, 
       name: item.name, 
