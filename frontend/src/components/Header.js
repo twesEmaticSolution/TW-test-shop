@@ -16,6 +16,7 @@ export default function Header() {
   if(userInfo && userInfo._id){
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
+      event: "check_user_login",
       userId: userInfo._id,
       userEmail: userInfo.email,
       userName: userInfo.name,
