@@ -21,6 +21,7 @@ export default function Productscreen() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetail);
+  const productDetailStatus = useSelector(state => state.productDetail.status);
   const { loading, error, product } = productDetail;
 
   useEffect(() => {
@@ -28,10 +29,12 @@ export default function Productscreen() {
   }, [dispatch, id]);
 
   useEffect(() => {
-    if (product && Object.keys(product).length !== 0) {
+    console.log("product screen 32");
+    console.log({productDetailStatus: productDetailStatus});
+    if (product && Object.keys(product).length !== 0 && productDetailStatus == "fulfilled") {
       pushViewDataLayer(product);
     }
-  }, [product]);
+  }, [productDetailStatus]);
 
   const addToCartHandler = () => {
     navigate(`/cart/${id}?qty=${qty}`);
