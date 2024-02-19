@@ -13,7 +13,7 @@ export default function Header() {
     dispatch(logout());
   };
   
-  if(userInfo._id){
+  if(userInfo && userInfo._id){
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
       userId: userInfo._id,
