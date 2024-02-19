@@ -20,6 +20,25 @@ export default function ShippingScreen() {
   useEffect(() => {
     console.log("ShippingScreen");
     console.log({ cart: cart });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "begin_checkout",
+      ecommerce: {
+        items: [
+          {
+            id: product._id,
+            name: product.name,
+            price: product.price,
+            brand: product.brand,
+            item_category: product.category,
+            image: product.image
+          },
+        ],
+      },
+    });
+    window.dataLayer.push({
+      event: "add_shipping_info"
+    });
   }, []);
 
   const submitHandler = (e) => {

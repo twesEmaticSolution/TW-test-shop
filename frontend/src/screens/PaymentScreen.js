@@ -19,6 +19,25 @@ export default function PaymentScreen() {
   useEffect(() => {
     console.log("ShippingScreen");
     console.log({ cart: cart });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "begin_checkout",
+      ecommerce: {
+        items: [
+          {
+            id: product._id,
+            name: product.name,
+            price: product.price,
+            brand: product.brand,
+            item_category: product.category,
+            image: product.image
+          },
+        ],
+      },
+    });
+    window.dataLayer.push({
+      event: "add_payment_info"
+    });
   }, []);
 
   const [paymentMethod, setPaymentMethod] = useState("PayPal");
