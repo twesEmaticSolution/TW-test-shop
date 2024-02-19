@@ -8,8 +8,6 @@ import { saveShippingInfo } from "../slicers/cart/cartActions.js";
 
 export default function ShippingScreen() {
   const cart = useSelector((state) => state.cart);
-  console.log("ShippingScreen")
-  console.log({cart : cart})
   const { shippingAddress } = cart;
 
   const [address, setAddress] = useState(shippingAddress.address);
@@ -18,6 +16,11 @@ export default function ShippingScreen() {
   const [country, setCountry] = useState(shippingAddress.country);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log("ShippingScreen");
+    console.log({ cart: cart });
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
