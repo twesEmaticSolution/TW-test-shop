@@ -10,11 +10,24 @@ export const productDetailSlice = createSlice({
       return { loading: true, ...state };
     },
     success: (state, action) => {
-      console.log("success in productDetailSlice")
-      console.log({state: state})
-      console.log({action: action})
-      console.log({product: action.payload})
-      return { loading: false, product: action.payload };
+      const product = action.payload;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: "view_item",
+        ecommerce: {
+          items: [
+            {
+              id: product._id,
+              name: product.name,
+              price: product.price,
+              brand: product.brand,
+              category: product.category,
+              image: product.image
+            },
+          ],
+        },
+      });
+      return { loading: false, product: product };
     },
     fail: (state, action) => {
       return { loading: false, error: action.payload };

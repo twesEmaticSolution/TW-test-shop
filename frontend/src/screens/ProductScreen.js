@@ -21,7 +21,6 @@ export default function Productscreen() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const productDetail = useSelector((state) => state.productDetail);
-  const productDetailStatus = useSelector(state => state.productDetail.status);
   const { loading, error, product } = productDetail;
   
   console.log({productDetail: productDetail});
@@ -30,37 +29,8 @@ export default function Productscreen() {
     dispatch(listProductDetail(id));
   }, [dispatch, id]);
 
-  useEffect(() => {
-    console.log("product screen 32");
-    console.log({productDetailStatus: productDetailStatus});
-    if (product && Object.keys(product).length !== 0 && productDetailStatus == "fulfilled") {
-      pushViewDataLayer(product);
-    }
-  }, [productDetailStatus]);
-
   const addToCartHandler = () => {
     navigate(`/cart/${id}?qty=${qty}`);
-  };
-
-  const pushViewDataLayer = (product) => {
-    if(product._id && product.price){
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: "view_item",
-        ecommerce: {
-          items: [
-            {
-              id: product._id,
-              name: product.name,
-              price: product.price,
-              brand: product.brand,
-              category: product.category,
-              image: product.image
-            },
-          ],
-        },
-      });
-    }
   };
 
   return (
