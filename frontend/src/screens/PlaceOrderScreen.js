@@ -43,9 +43,9 @@ export default function PlaceOrderScreen() {
       window.dataLayer.push({
         event: "purchase",
         transaction_id: order._id,
-        value: order.totalPrice,
-        tax: order.taxPrice,
-        shipping: order.shippingPrice,
+        value: parseFloat(num.toFixed(order.totalPrice)),
+        tax: parseFloat(num.toFixed(order.taxPrice)),
+        shipping: parseFloat(num.toFixed(order.shippingPrice)),
         currency: "TWD",
         paymentMethod: paymentMethod,
         ecommerce: {
