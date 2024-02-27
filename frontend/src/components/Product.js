@@ -8,7 +8,7 @@ export default function Product({ product }) {
   return (
     <Card className="my-3 p-3 rounded">
       <Link to={`/product/${product._id}`}>
-        <Card.Img src={product.image} variant="top" onerror="this.onerror=null;this.src='./default.png';"/>
+        <Card.Img src={product.image} variant="top" onError={() => this.img.src = 'image/default.img'} />
       </Link>
       <Card.Body>
         <Link to={`/product/${product._id}`}>
