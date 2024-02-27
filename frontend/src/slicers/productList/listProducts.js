@@ -8,8 +8,8 @@ export const listProducts = createAsyncThunk(
     try {
       dispatch(request());
       const { data } = await axios.get("/api/products");
-      console.log({data: data});
-      dispatch(success(data));
+      const sortedData = [...data].sort((a, b) => a.name.localeCompare(b.name));
+      dispatch(success(sortedData));
     } catch (err) {
       const error =
         err.response && err.response.data.message
