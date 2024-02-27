@@ -8,6 +8,7 @@ export const listProducts = createAsyncThunk(
     try {
       dispatch(request());
       const { data } = await axios.get("/api/products");
+      console.log({data: data});
       dispatch(success(data));
     } catch (err) {
       const error =
